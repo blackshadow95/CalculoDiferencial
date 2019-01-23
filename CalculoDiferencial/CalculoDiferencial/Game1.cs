@@ -11,7 +11,7 @@ namespace CalculoDiferencial
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Enemy enemy;
+        Enemy enemy, enemy2, enemy3;
 
         public Game1()
         {
@@ -28,7 +28,9 @@ namespace CalculoDiferencial
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            enemy = new Enemy(Content, new Vector2(0, 100));
+            enemy = new Enemy(Content, new Vector2(100, 100), Enemy.type.horizontal);
+            enemy2 = new Enemy(Content, new Vector2(100, 100), Enemy.type.vertical);
+            enemy3 = new Enemy(Content, new Vector2(350, 225), Enemy.type.eliptico);
             base.Initialize();
         }
 
@@ -43,6 +45,8 @@ namespace CalculoDiferencial
 
             // TODO: use this.Content to load your game content here
             enemy.Initialize();
+            enemy2.Initialize();
+            enemy3.Initialize();
         }
 
         /// <summary>
@@ -66,6 +70,8 @@ namespace CalculoDiferencial
 
             // TODO: Add your update logic here
             enemy.Update();
+            enemy2.Update();
+            enemy3.Update();
             base.Update(gameTime);
         }
 
@@ -80,6 +86,8 @@ namespace CalculoDiferencial
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             enemy.Draw(spriteBatch);
+            enemy2.Draw(spriteBatch);
+            enemy3.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
