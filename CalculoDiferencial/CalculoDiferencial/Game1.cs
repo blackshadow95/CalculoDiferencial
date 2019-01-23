@@ -12,6 +12,7 @@ namespace CalculoDiferencial
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Enemy enemy, enemy2, enemy3;
+        Canon canon;
 
         public Game1()
         {
@@ -31,6 +32,8 @@ namespace CalculoDiferencial
             enemy = new Enemy(Content, new Vector2(100, 100), Enemy.type.horizontal);
             enemy2 = new Enemy(Content, new Vector2(100, 100), Enemy.type.vertical);
             enemy3 = new Enemy(Content, new Vector2(350, 225), Enemy.type.eliptico);
+            canon = new Canon(Content);
+            
             base.Initialize();
         }
 
@@ -47,6 +50,7 @@ namespace CalculoDiferencial
             enemy.Initialize();
             enemy2.Initialize();
             enemy3.Initialize();
+            canon.Initialize();
         }
 
         /// <summary>
@@ -72,6 +76,8 @@ namespace CalculoDiferencial
             enemy.Update();
             enemy2.Update();
             enemy3.Update();
+            canon.Update();
+
             base.Update(gameTime);
         }
 
@@ -88,6 +94,7 @@ namespace CalculoDiferencial
             enemy.Draw(spriteBatch);
             enemy2.Draw(spriteBatch);
             enemy3.Draw(spriteBatch);
+            canon.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

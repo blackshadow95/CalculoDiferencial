@@ -16,7 +16,7 @@ namespace CalculoDiferencial
         public enum type {eliptico, horizontal, horizontal2, vertical, vertical2};
         type myType;
         private int x = 0, alcanceX = 700, alcanceY = 450;
-        private float t = .1f, amplitudH = 20, amplitudV = 10;
+        public float t = .1f, amplitudH = 20, amplitudV = 10;
         private int speed = 10;
 
         public Enemy(ContentManager contentManager, Vector2 position, type _myType)
@@ -82,7 +82,8 @@ namespace CalculoDiferencial
 
             else if (myType == type.eliptico)
             {
-                enemyPosition = new Vector2(enemyPosition.X + (float)Math.Cos(x * .1) * 10, enemyPosition.Y + (float)Math.Sin(x * .1));
+                enemyPosition = new Vector2(enemyPosition.X + (float)Math.Cos(x * .1) * speed,
+                    enemyPosition.Y + (float)Math.Sin(x * .1) * speed);
             }
 
             t += .01f;
